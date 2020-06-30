@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Covid Deaths by Area</title>
+<link href="shared/selectize/css/selectize.bootstrap3.css" rel="stylesheet" />
+<link href="shared/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+<script src="shared/jquery.min.js"></script>
+<script src="shared/selectize/js/standalone/selectize.min.js"></script>
+<script src="shared/bootstrap/js/bootstrap.min.js"></script>
+<style>
+.shiny-html-output table td {
+  width: 400px
+}
+.shiny-html-output td:nth-child(2) {
+  border-right: 2px solid #D7DBDD
+}
+.shiny-html-output td:nth-child(4) {
+  border-right: 2px solid #D7DBDD
+}
+.shiny-html-output td:nth-child(6) {
+  border-right: 2px solid #D7DBDD
+}
+.shiny-html-output table tr:last-child td {
+  border-top: 2px solid #D7DBDD
+}
+
+#table_caption {
+  text-align: center;
+}
+
+.right {
+  text-align: right;
+}
+
+.covid {
+  fill: #f8766d;
+}
+
+.notcovid {
+  fill: #00bfc4;
+}
+
+.baseline {
+  stroke: #000;
+  stroke-dasharray: 4 2;
+  fill: none;
+  shape-rendering: crispEdges;
+}
+
+.bar, .tick line {
+  shape-rendering: crispEdges;
+}
+
+.x-grid .tick line, .y-grid .tick line {
+  stroke: #ddd;
+}
+
+.chart-title {
+  font-size: 1.6em;
+}
+</style>
+
+<body>
+  <div class="container-fluid">
+    <h2>Covid Deaths by Area</h2>
+    <div class="row">
+      <div class="col-sm-3">
+        <form class="well">
+          <div class="form-group shiny-input-container">
+            <label class="control-label" for="area">Area:</label>
+            <div>
+              <select id="area"></select>
+            </div>
+          </div>
+          <div class="form-group shiny-input-container">
+            <label class="control-label" for="dataset">Data set:</label>
+            <div>
+              <select id="dataset"><option value="Occurrences" selected>Occurrences</option>
+<option value="Registrations">Registrations</option></select>
+            </div>
+          </div>
+          <div class="form-group shiny-input-container">
+            <label class="control-label" for="baseline">Baseline:</label>
+            <div>
+              <select id="baseline"><option value="Five year average" selected>Five year average</option>
+<option value="Adjusted five year average">Adjusted five year average</option></select>
+            </div>
+          </div>
+          <div class="form-group shiny-input-container">
+            <label class="control-label" for="start_date">Start week commencing:</label>
+            <div>
+              <select id="start_date"></select>
+            </div>
+          </div>
+          <div class="form-group shiny-input-container">
+            <label class="control-label" for="stop_date">Stop week commencing:</label>
+            <div>
+              <select id="stop_date"></select>
+            </div>
+          </div>
+          Type in the Area box to search for areas
+        </form>
+      </div>
+      <div class="col-sm-8">
+        <h2>
+          <div id="title" class="shiny-text-output">England and Wales</div>
+        </h2>
+        <div id="plot" class="shiny-plot-output"></div>
+        <br/>
+        <div id="table" class="shiny-html-output"></div>
+        <div id="table_caption" class="shiny-html-output"></div>
+      </div>
+    </div>
+  </div>
+<script src="dist/bundle.js"></script>
