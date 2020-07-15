@@ -29,6 +29,10 @@ Run the following to update `data.csv`:
 
     node compress-data.js
 
+Downloading and Compressing Data
+--------------------------------
+To deploy on Netlify, check in and push changes to master. This currently deployes on a free gmp26@cam.ac.uk account there to [this URL](https://amazing-ride-4051de.netlify.app).
+
 Additional Notes
 ----------------
 
