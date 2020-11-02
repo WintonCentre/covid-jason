@@ -1,2 +1,4 @@
 node_modules
 *.tar
+weekly-deaths-local-authority-time-series-v1.csv
+step*

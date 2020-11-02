@@ -29,9 +29,12 @@ fetchJSON("https://api.beta.ons.gov.uk/v1/datasets/weekly-deaths-local-authority
         const keyColumns = columns.slice(1);
         const groups = {};
         data.forEach(row => {
-          row.placeofdeath = normalisePlaceOfDeath(row.placeofdeath);
+          row.placeofdeath = normalisePlaceOfDeath(row["PlaceOfDeath"]);
           row.v4_0 = +row.v4_0;
           row.week = +row["week-number"].split("-").pop();
+          row["admin-geography"] = row["administrative-geography"];
+          row["geography"] = row.Geography;
+          row["registrationoroccurrence"] = row["RegistrationOrOccurrence"];
           const key = csvFormat([row], keyColumns);
           if (groups.hasOwnProperty(key)) {
             groups[key].v4_0 += row.v4_0;
