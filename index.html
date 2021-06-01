@@ -9,128 +9,139 @@
 <script src="shared/selectize/js/standalone/selectize.min.js"></script>
 <script src="shared/bootstrap/js/bootstrap.min.js"></script>
 <style>
-.shiny-html-output table td {
-  width: 400px
-}
-.shiny-html-output td:nth-child(2) {
-  border-right: 2px solid #D7DBDD
-}
-.shiny-html-output td:nth-child(4) {
-  border-right: 2px solid #D7DBDD
-}
-.shiny-html-output td:nth-child(6) {
-  border-right: 2px solid #D7DBDD
-}
-.shiny-html-output table tr:last-child td {
-  border-top: 2px solid #D7DBDD
-}
-
-#table_caption {
-  text-align: center;
-}
-
-.right {
-  text-align: right;
-}
-
-.covid {
-  fill: #f8766d;
-}
-
-.notcovid {
-  fill: #00bfc4;
-}
-
-.baseline {
-  stroke: #000;
-  stroke-dasharray: 4 2;
-  fill: none;
-  shape-rendering: crispEdges;
-}
-
-.excess {
-  fill: #ccc;
-}
-
-.bar, .tick line {
-  shape-rendering: crispEdges;
-}
-
-.x-grid .tick line, .y-grid .tick line {
-  stroke: #ddd;
-}
-
-.chart-title {
-  font-size: 1.6em;
-}
+    .shiny-html-output table td {
+        width: 400px
+    }
+    
+    .shiny-html-output td:nth-child(2) {
+        border-right: 2px solid #D7DBDD
+    }
+    
+    .shiny-html-output td:nth-child(4) {
+        border-right: 2px solid #D7DBDD
+    }
+    
+    .shiny-html-output td:nth-child(6) {
+        border-right: 2px solid #D7DBDD
+    }
+    
+    .shiny-html-output table tr:last-child td {
+        border-top: 2px solid #D7DBDD
+    }
+    
+    #table_caption {
+        text-align: center;
+    }
+    
+    .right {
+        text-align: right;
+    }
+    
+    .covid {
+        fill: #f8766d;
+    }
+    
+    .notcovid {
+        fill: #00bfc4;
+    }
+    
+    .baseline {
+        stroke: #000;
+        stroke-dasharray: 4 2;
+        fill: none;
+        shape-rendering: crispEdges;
+    }
+    
+    .excess {
+        fill: #ccc;
+    }
+    
+    .bar,
+    .tick line {
+        shape-rendering: crispEdges;
+    }
+    
+    .x-grid .tick line,
+    .y-grid .tick line {
+        stroke: #ddd;
+    }
+    
+    .chart-title {
+        font-size: 1.6em;
+    }
 </style>
 
+
 <body>
-  <div class="container-fluid">
-    <h2>Covid Deaths by Area</h2>
-    <div class="well">
-      <div class="row">Type in the Area box to search for areas.</div>
-      <br/>
-      <div class="row">
-        <div class="col-sm-4">
-          <div class="form-group shiny-input-container">
-            <label class="control-label" id="plot_type-label" for="plot_type">Plot type:</label>
-            <div>
-              <select id="plot_type"><option value="Total deaths" selected>Total deaths</option>
+    <div class="container-fluid">
+        <h2>Covid Deaths by Area</h2>
+        <div class="well">
+            <div class="row">Type in the Area box to search for areas.</div>
+            <br/>
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="form-group shiny-input-container">
+                        <label class="control-label" id="plot_type-label" for="plot_type">Plot type:</label>
+                        <div>
+                            <select id="plot_type"><option value="Total deaths" selected>Total deaths</option>
 <option value="Excess deaths">Excess deaths</option></select>
-              <script type="application/json" data-for="plot_type" data-nonempty="">{"plugins":["selectize-plugin-a11y"]}</script>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-4">
-          <div class="form-group shiny-input-container">
-            <label class="control-label" id="area-label" for="area">Area:</label>
-            <div>
-              <select id="area"></select>
-           </div>
-          </div>
-        </div>
-        <div class="col-sm-4">
-          <div class="form-group shiny-input-container">
-            <label class="control-label" id="dataset-label" for="dataset">Data set:</label>
-            <div>
-              <select id="dataset">
+                            <script type="application/json" data-for="plot_type" data-nonempty="">
+                                {
+                                    "plugins": ["selectize-plugin-a11y"]
+                                }
+                            </script>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group shiny-input-container">
+                        <label class="control-label" id="area-label" for="area">Area:</label>
+                        <div>
+                            <select id="area"></select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group shiny-input-container">
+                        <label class="control-label" id="dataset-label" for="dataset">Data set:</label>
+                        <div>
+                            <select id="dataset">
                 <option value="Registrations" selected>Registrations</option>
                 <option value="Occurrences">Occurrences</option>
               </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group shiny-input-container">
+                        <label class="control-label" for="start_date">Start week commencing:</label>
+                        <div>
+                            <select id="start_date"></select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group shiny-input-container">
+                        <label class="control-label" for="stop_date">Stop week commencing:</label>
+                        <div>
+                            <select id="stop_date"></select>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-        <div class="col-sm-4">
-          <div class="form-group shiny-input-container">
-            <label class="control-label" for="start_date">Start week commencing:</label>
-            <div>
-              <select id="start_date"></select>
+        <div class="row">
+            <div class="col-sm-8">
+                <h2>
+                    <div id="title" class="shiny-text-output">England and Wales</div>
+                </h2>
             </div>
-          </div>
+            <div id="totals_plot_caption" class="shiny-text-output"></div>
+            <div id="totals_plot" class="shiny-plot-output"></div>
+            <div id="by_place_of_death_plot" class="shiny-plot-output"></div>
+            <br/>
+            <div id="table" class="shiny-html-output"></div>
+            <div id="table_caption" class="shiny-html-output"></div>
         </div>
-        <div class="col-sm-4">
-          <div class="form-group shiny-input-container">
-            <label class="control-label" for="stop_date">Stop week commencing:</label>
-            <div>
-              <select id="stop_date"></select>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
-    <div class="row">
-      <div class="col-sm-8">
-        <h2>
-          <div id="title" class="shiny-text-output">England and Wales</div>
-        </h2>
-      </div>
-      <div id="totals_plot_caption" class="shiny-text-output"></div>
-      <div id="totals_plot" class="shiny-plot-output"></div>
-      <div id="by_place_of_death_plot" class="shiny-plot-output"></div>
-      <br/>
-      <div id="table" class="shiny-html-output"></div>
-      <div id="table_caption" class="shiny-html-output"></div>
-    </div>
-  </div>
-<script src="dist/bundle.js"></script>
+    <script src="dist/bundle.js"></script>
