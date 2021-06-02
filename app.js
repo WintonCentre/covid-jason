@@ -51,7 +51,7 @@ function changed() {
     updateTableCaption(settings);
 }
 
-fetch("data.csv", { headers: { 'Accept-Encoding': 'gzip' } })
+fetch("data.csv")
     .then(response => response.text())
     .then(csv => {
         let rows = csvParse(csv, );
