@@ -42,14 +42,3 @@ These are then compressed into `five-year-average.js` by running:
     node compress-five-year-average.js
 
 These files shouldn't need to be updated, but if they do, the above compression should be run, followed by `npm run build` to rebuild the bundle.
-
-Hosted at
----------
-
-* 209.97.136.210:/home/django/wintoncentre.maths.cam.ac.uk/media/covid-2021-04-07 
-* which is symlinked to 
-* 209.97.136.210:/home/django/wintoncentre.maths.cam.ac.uk/media/covid-latest
-
-
-
-
