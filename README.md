@@ -17,6 +17,7 @@ Build Instructions
 Run the following to install dependencies:
 
     npm install
+    npm install -g serve
 
 Run the following to bundle the code into a single file:
 
