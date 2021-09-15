@@ -1,7 +1,7 @@
 ;;;
-;; This mindlessly duplicates some npm aliases so peoople using bb can do so.
+;; This mindlessly duplicates some npm aliases. The fetch task does a quick check to see if it's necessary to fetch new data yet.
 ;;
-;; We depends on some globally installed npm packages as well as node
+;; We depend on some globally installed npm packages as well as node
 ;; npm install -g serve
 ;; npm install -g rollup
 ;;
