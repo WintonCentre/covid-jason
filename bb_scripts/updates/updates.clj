@@ -11,4 +11,4 @@
       (s/split #",")))
 (def data-week (edn/read-string (nth last-line 3)))
 (def this-week (edn/read-string ((sh "date" "+%V") :out)))
-(def fetch? (pos? (- data-week 51 this-week)))
+(def fetch? (neg? (- data-week 51 this-week)))
