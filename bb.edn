@@ -18,11 +18,11 @@
                         (println "no new data yet"))}
          build {:doc "Rebuild the js using rollup"
                 :task (sh "rollup" "-c")}
-         week {:doc "Print the current week numbe"
+         week {:doc "Print the current week number"
                :task (prn u/this-week)}
          dataw {:doc "Print the max week number present in data.csv"
                 :task (prn u/data-week)}
-         serve {:doc "Serve on localhost:5010"
+         serve {:doc "Serve on http://localhost:5010"
                 :task (sh "serve" "--single" "." "--listen" "5010")}
          publish {:doc "Publish to netlify via github. Conventionally we commit with a message indicating the stop week"
                   :task (sh "git" "push")}}}
