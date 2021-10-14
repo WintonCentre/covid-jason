@@ -23,6 +23,6 @@
          dataw {:doc "Print the max week number present in data.csv"
                 :task (prn u/data-week)}
          serve {:doc "Serve on http://localhost:5010"
-                :task (sh "serve" "--single" "." "--listen" "5010")}
+                :task (sh "npm" "run" "serve")}
          publish {:doc "Publish to netlify via github. Conventionally we commit with a message indicating the stop week"
                   :task (sh "git" "push")}}}
