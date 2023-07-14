@@ -19,6 +19,6 @@
     "d3-time": "^1.1.0",
     "d3-time-format": "^2.2.3",
     "follow-redirects": "^1.12.1",
-    "npm": "^6.14.8"
+    "npm": "^9.8.0"
   }
 }
